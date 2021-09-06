@@ -1,0 +1,23 @@
+.navBarContainer {
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.navBar {
+  background-color: #8b2635;
+  padding: 1%;
+}
+
+.searcher{
+    background-color: #2E3532;
+    border: 0.5em solid #8b2635;
+    border-radius: 0.5rem;
+    border-top-right-radius: 0%;
+    border-top-left-radius: 0%;
+    width: 25%;
+    min-width: 250px;
+    padding: 0.5%;
+}
+
