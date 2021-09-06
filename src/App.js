@@ -6,6 +6,7 @@ import { Detail } from "./views/Detail";
 import { getArt, getDepts } from "./redux/actions/actions";
 import { Route } from "react-router";
 import { NavBar } from "./components/NavBar/NavBar";
+import { Mondrian } from "./components/Mondrian/Mondrian";
 
 function App() {
   const dispatch = useDispatch();
@@ -17,9 +18,10 @@ function App() {
   return (
     // <Provider store={store}>
     <div className="App">
-      <Route path = "/" component = {NavBar} />
-      <Route exact path="/" render = {() => <Detail/>} />
-      <Route exact path="/" render = {() => <Main/>} />
+      <Route exact path="/" component={NavBar} />
+      <Route exact path="/" render={() => <Detail />} />
+      <Route exact path="/" render={() => <Main />} />
+      <Route exact path="/mondrian" component={Mondrian} />
       {/* <Route
         exact
         path="/id/:id"

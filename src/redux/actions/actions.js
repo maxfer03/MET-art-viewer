@@ -79,10 +79,10 @@ export const getDetail = (id) => {
         artist: allData.artistDisplayName,
         artistBeginDate: allData.artistBeginDate,
         artistEndDate: allData.artistEndDate,
-
-
-
       }
+      artData.title = artData.title.replace('<i>', '')
+      artData.title = artData.title.replace('</i>', '')
+      
       dispatch({type: GET_DETAIL, payload: artData})
     })
   }

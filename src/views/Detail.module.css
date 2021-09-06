@@ -1,5 +1,5 @@
 .superContainer {
-    display: flex;
+  display: flex;
   position: fixed;
   z-index: 100;
   height: 100vh;
@@ -9,42 +9,87 @@
   align-items: center;
   justify-content: center;
   transition: 1s;
-
-  
 }
 
-.container{
-    position: fixed;
-    transition: 1s;
-    width: 100%;
-    display: flex;
-    
-    align-items: center;
-    justify-content: center;
-    
+.container {
+  position: fixed;
+  transition: 1s;
+  width: 100%;
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
 }
 
 .detail {
   display: flex;
   border-radius: 1em;
   overflow: hidden;
-  
+
   background-color: hsl(351, 57%, 45%);
   width: 70vw;
   height: 90vh;
 }
 
-.detailText {
-  width: 50%;
-  padding: 5%;
+.detailTextContainer{
+  width: 45%;
+  padding: 3%;
+  
 }
 
-.title{
-    
-  }
+.detailText {
+  margin: 0%;
+  padding: 5%;
+  border-radius: 1em 1em 0em 0em;
+  font-weight: bold;
+  font-size: 1.5em;
+  background-color: blanchedalmond;
+  height: 100%;
+}
+
+.title {
+  font-weight: bolder;
+  color: black;
+  font-size: 2em;
+}
+
+.artist{
+  font-size: 1em;
+}
+
+.misc{
+  background: rgb(255, 0, 0);
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.eachMisc{
+  display: flex;
+  min-width: 40%;
+  max-width: 55%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 0.5%;
+  border: 1px solid black;
+}
+
+#date{
+  background-color: blueviolet;
+}
+#obj{
+  background-color: rgb(43, 226, 58);
+}
+#culture{
+  background-color: rgb(226, 183, 43);
+}
+#dept{
+  background-color: rgb(43, 226, 195);
+}
 
 .imgContainer {
   display: flex;
+  position: relative;
   background-color: blue;
   overflow: hidden;
   width: 50%;
@@ -56,15 +101,26 @@
 }
 
 .imgLink {
-  position: fixed;
+  position: absolute;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   opacity: 0%;
-  width: 35vw;
   height: 90vh;
   background: rgba(0, 0, 0, 0.26);
   box-shadow: inset 0px 3px 100px rgba(0, 0, 0, 0.3);
   transition: 0.2s;
+  text-decoration: none;
 }
 
 .imgLink:hover {
   opacity: 100%;
+}
+
+.imgText {
+  text-decoration: none;
+  font-size: 2em;
+  color: white;
 }

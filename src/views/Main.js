@@ -6,7 +6,7 @@ import { getDepts } from "../redux/actions/actions";
 
 export const Main = () => {
   return (
-    <div style ={{paddingTop: "10vh"}}>
+    <div style ={{padding: "10vh"}}>
       <Display />
     </div>
   );

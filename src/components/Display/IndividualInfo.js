@@ -36,13 +36,13 @@ export const IndividualInfo = ({ id }) => {
     dispatch(viewDetail(displayDetail));
     setDetailLoading(false);
   };
-  console.log(info.title)
+  info.title = info.title.replace("<i>", '')
+  info.title = info.title.replace("</i>", '')
   return (
     <div className={style.container} key={id}>
-      {/* <Link to = {`/id/${id}`}></Link> */}
       <div className={style.imageInfoContainer} onClick={() => getArtDetail()}>
         <div className={style.info}>
-          <div className={style.title}>{info.title.length > 75? info.title.slice(0, 70) + "..." : info.title }</div>
+          <div className={style.title}>{info.title.length > 60? info.title.slice(0, 60) + "..." : info.title }</div>
           <div className={style.artist}>{info.artist}</div>
         </div>
       </div>

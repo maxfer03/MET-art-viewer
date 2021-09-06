@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { viewDetail } from "../redux/actions/actions";
 import styles from "./Detail.module.css";
-import {FaCreativeCommonsPd} from 'react-icons/fa'
-import {MdCopyright}from 'react-icons/md'
+import { FaCreativeCommonsPd, FaCheck } from "react-icons/fa";
+import { MdCopyright } from "react-icons/md";
 
 export const Detail = () => {
   const displayDetail = useSelector((state) => state.displayDetail);
@@ -20,9 +20,11 @@ export const Detail = () => {
               background: "rgba(0, 0, 0, 0.584)",
               boxShadow: "inset 0px 3px 200px rgba(0, 0, 0, 0.811)",
             }
-          : { visibility: "hidden",
-          background: "rgba(0, 0, 0, 0.0)",
-          boxShadow: "inset 0px 3px 200px rgba(0, 0, 0, 0.0)", }
+          : {
+              visibility: "hidden",
+              background: "rgba(0, 0, 0, 0.0)",
+              boxShadow: "inset 0px 3px 200px rgba(0, 0, 0, 0.0)",
+            }
       }
     >
       <div
@@ -31,14 +33,38 @@ export const Detail = () => {
       >
         <button onClick={() => dispatch(viewDetail(displayDetail))}>X</button>
         <div className={styles.detail}>
-          <div className={styles.detailText}>
-            <a target="_blank" href={artDetail.metLink} className={styles.title}>{artDetail.title}</a> {artDetail.famous && <span>(Highlighted)</span>} <span>{artDetail.public? <FaCreativeCommonsPd/> : <MdCopyright/>}</span>
-            <div>
-              {artDetail.artistPrefix} {artDetail.artist || "Unknown"} ({" "}
-              {artDetail.artistBeginDate || "?"} -{" "}
-              {artDetail.artistEndDate || "?"} )
+          <div className={styles.detailTextContainer}>
+            <div className={styles.detailText}>
+              <a
+                target="_blank"
+                href={artDetail.metLink}
+                className={styles.title}
+              >
+                {artDetail.title}
+              </a>{" "}
+              {artDetail.famous && <FaCheck />}{" "}
+              <span>
+                {artDetail.public ? <FaCreativeCommonsPd /> : <MdCopyright />}
+              </span>
+              <div className={styles.artist}>
+                {artDetail.artistPrefix} {artDetail.artist}
+                {artDetail.artist ? (
+                  <span>
+                    ( {artDetail.artistBeginDate || "?"} -{" "}
+                    {artDetail.artistEndDate || "?"} )
+                  </span>
+                ) : (
+                  ""
+                )}
+              </div>
+              <div className = {styles.misc}>
+                
+                <div className = {styles.eachMisc} id={styles.obj}>{artDetail.obj}</div>
+                <div className = {styles.eachMisc} id={styles.culture}>{artDetail.culture}</div>
+                <div className = {styles.eachMisc} id={styles.dept}>{artDetail.dept}</div>
+              </div>
+              <div>You can find it at the {artDetail.actualLocation}</div>
             </div>
-            <div>You can find it at the {artDetail.actualLocation}</div>
           </div>
           <div className={styles.imgContainer}>
             <img className={styles.img} src={artDetail.img} />
@@ -46,7 +72,9 @@ export const Detail = () => {
               target="_blank"
               href={artDetail.fullImg}
               className={styles.imgLink}
-            ></a>
+            >
+              <div className={styles.imgText}>See full sized image</div>
+            </a>
           </div>
         </div>
       </div>
